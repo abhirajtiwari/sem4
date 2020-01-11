@@ -1,0 +1,22 @@
+	AREA RESET, DATA, READONLY
+	EXPORT __Vectors
+__Vectors
+	DCD 0x10001000
+	DCD	Reset_Handler
+
+	AREA memtransfers, CODE, READONLY
+	ENTRY
+	EXPORT Reset_Handler
+
+Reset_Handler
+	LDR	R0,=SRC
+	MOV	R4,#0x3348
+	STR	R4,[R0]
+	LDR	R1,=DST
+	LDR	R2,[R0]
+	STR	R2,[R1]
+	
+	AREA mydata, DATA, READWRITE
+SRC	DCD	0x3348
+DST DCD	0
+	END
