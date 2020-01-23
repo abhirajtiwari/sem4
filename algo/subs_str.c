@@ -6,12 +6,11 @@ int stringSearch (char* a, char* key) {
 	int count = 0;
 	for (int i = 0; i <= strlen(a)-strlen(key); ++i)
 	{
-		for (int j = 0; j < strlen(key); ++j, ++i)
+		for (int j = 0; j < strlen(key); ++j)
 		{
 			count++;
-			if(key[j] != a[i]) break;
+			if(key[j] != a[i+j]) break;
 			if(j == strlen(key)-1) {
-				count++;
 				printf("Count: %d\n", count);
 				return 1;
 			}
